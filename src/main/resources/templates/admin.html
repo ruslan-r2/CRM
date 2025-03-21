@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<th:block th:insert="~{layouts/header}">header</th:block>
+<body>
+<th:block th:insert="~{layouts/navigation}">navbar</th:block>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+<!--            <h3 class="mt-5">Список пользователей</h3>-->
+<!--            <p class="lead">Страница списка пользователей.</p>-->
+            <table class="table table-striped table-hover caption-top">
+                <caption>Список пользователей.</caption>
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Пароль</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Роли</th>
+                    <th scope="col">2FA</th>
+                    <th scope="col">Enabled</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="u : ${users}">
+                    <th scope="row" th:text="${u.id}">id</th>
+                    <th th:text="${u.getUsername()}">Логин</th>
+                    <td th:text="${u.getPassword()}">Пароль</td>
+                    <td th:text="${u.getFirstName()}">Имя</td>
+                    <td th:text="${u.getLastName()}">Фамили</td>
+                    <td th:text="${u.getEmail()}">E-mail</td>
+                    <td>
+                        <div th:each="r : ${u.roles}">
+                            <div th:text="${r.getName()}">Имя роли</div>
+                        </div>
+                    </td>
+                    <td th:text="${u.isUsing2FA()}">2FA</td>
+                    <td th:text="${u.isEnabled()}">Enabled</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="~{layouts/footer}">footer</th:block>
+</body>
+</html>

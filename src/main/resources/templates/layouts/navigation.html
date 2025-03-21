@@ -1,0 +1,22 @@
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark"
+     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">CRM@</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav nav-fill">
+
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin">Админ панель</a></li>
+                <li class="nav-item"><a class="nav-link" href="/news">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="/registration">Зарегистрироваться</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

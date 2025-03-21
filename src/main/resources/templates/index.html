@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<th:block th:insert="~{layouts/header}">header</th:block>
+<body>
+<th:block th:insert="~{layouts/navigation}">navbar</th:block>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h3 class="mt-5">Главная страница</h3>
+            <p class="lead">Главная страница приложения, доступна без авторизации всем пользователям..</p>
+            <p th:text="${message}"> </p>
+
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="~{layouts/footer}">footer</th:block>
+</body>
+</html>

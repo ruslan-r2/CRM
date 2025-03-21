@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<th:block th:insert="~{layouts/header}">header</th:block>
+<body>
+<th:block th:insert="~{layouts/navigation}">navbar</th:block>
+
+
+<h1>Index page</h1>
+
+<p>Форма регистрации:</p>
+<form th:action="@{/registration}" th:object="${userForm}" th:method="POST">
+
+
+    <div>Имя пользователя:</div><div th:if="${usernameError != null}" th:text="${usernameError}"></div>
+    <input th:type="text" th:name="username" th:id="username" placeholder="Введите имя пользователя."/>
+
+    <div>Пароль:</div><div th:if="${passwordError != null}" th:text="${passwordError}"></div>
+    <input th:type="password" th:name="password" th:id="password" placeholder="Введите пароль."/>
+    <div>Подтвердить пароль:</div>
+    <input th:type="password" th:name="passwordConfirm" th:id="passwordConfirm" placeholder="Введите пароль."/>
+
+    <button type="submit">Зарегистрироваться.</button>
+</form>
+
+
+<th:block th:insert="~{layouts/footer}">footer</th:block>
+</body>
+</html>
